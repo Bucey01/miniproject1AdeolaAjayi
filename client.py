@@ -118,3 +118,74 @@ class PracticeHubClient:
             return False
 
         return True
+
+
+def main():
+    token = os.environ.get("PRACTICE_API_TOKEN")
+
+    if not token:
+        print(
+            "PRACTICE_API_TOKEN is not set. "
+            "Set the token before running the program."
+        )
+        return
+
+    client = PracticeHubClient(
+        "https://practice.fhsucyber.com",
+        token
+    )
+
+    print("Creating a post...")
+
+    created_post = client.create_post(
+        title="Mini Project 1 Test",
+        body="This post was created using my Python API client.",
+        tags=["python", "api"]
+    )
+
+    if created_post is None:
+        return
+
+    print("Post created:")
+    print(created_post)
+
+    post_id = created_post["id"]
+
+    print("\nReading the post...")
+
+    post = client.get_post(post_id)
+
+    if post is not None:
+        print("Post retrieved:")
+        print(post)
+
+    print("\nUpdating the post...")
+
+    updated_post = client.update_post(
+        post_id,
+        title="Updated Mini Project 1 Test",
+        body="This post has been updated.",
+        tags=["python", "crud"]
+    )
+
+    if updated_post is not None:
+        print("Post updated:")
+        print(updated_post)
+
+    print("\nListing my posts...")
+
+    posts = client.list_posts(mine=True)
+
+    if posts is not None:
+        print(posts)
+
+    print("\nDeleting the post...")
+
+    deleted = client.delete_post(post_id)
+
+    if deleted:
+        print("Post deleted successfully.")
+
+
+if __name__ == "__main__":
+    main()
