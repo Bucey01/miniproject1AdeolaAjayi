@@ -90,3 +90,31 @@ class PracticeHubClient:
 
         return response.json()
 
+
+    def update_post(self, post_id, title, body="", tags=None):
+        response = requests.patch(
+            f"{self.base_url}/api/v1/posts/{post_id}",
+            headers=self.headers,
+            json={
+                "title": title,
+                "body": body,
+                "tags": tags or []
+            }
+        )
+
+        if not self.handle_response(response):
+            return None
+
+        return response.json()
+
+
+    def delete_post(self, post_id):
+        response = requests.delete(
+            f"{self.base_url}/api/v1/posts/{post_id}",
+            headers=self.headers
+        )
+
+        if not self.handle_response(response):
+            return False
+
+        return True
