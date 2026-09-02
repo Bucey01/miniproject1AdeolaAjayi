@@ -6,6 +6,7 @@ import os
 import requests
 
 class PracticeHubClient:
+    # Store authentication information for API requests
     def __init__(self, base_url, token):
         self.base_url = base_url.rstrip("/")
         self.token = token
@@ -44,6 +45,7 @@ class PracticeHubClient:
 
         return True
 
+    # Create a new Practice Hub post
     def create_post(self, title, body="", tags=None):
         response = requests.post(
             f"{self.base_url}/api/v1/posts",
@@ -60,6 +62,7 @@ class PracticeHubClient:
 
         return response.json()
 
+    # Retrieve posts, optionally filtering by owner or tag.
     def list_posts(self, mine=False, tag=None):
         params = {
             "mine": mine
@@ -79,6 +82,7 @@ class PracticeHubClient:
 
         return response.json()
 
+    # Retrieve one post using its ID
     def get_post(self, post_id):
         response = requests.get(
             f"{self.base_url}/api/v1/posts/{post_id}",
@@ -91,6 +95,7 @@ class PracticeHubClient:
         return response.json()
 
 
+    # Update an existing post using a PATCH request.
     def update_post(self, post_id, title, body="", tags=None):
         response = requests.patch(
             f"{self.base_url}/api/v1/posts/{post_id}",
@@ -108,6 +113,7 @@ class PracticeHubClient:
         return response.json()
 
 
+    # Delete a post using its ID.
     def delete_post(self, post_id):
         response = requests.delete(
             f"{self.base_url}/api/v1/posts/{post_id}",
@@ -120,6 +126,7 @@ class PracticeHubClient:
         return True
 
 
+# Run a complete create, read, update, and delete demonstration.
 def main():
     token = os.environ.get("PRACTICE_API_TOKEN")
 
@@ -187,5 +194,8 @@ def main():
         print("Post deleted successfully.")
 
 
+
+
 if __name__ == "__main__":
+
     main()
