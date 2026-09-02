@@ -74,8 +74,10 @@ The client prints readable messages for these HTTP errors:
 
 ## AI Usage
 
-I used Claude Code to explain the assignment requirements more in details, Python syntax,
-REST API concepts, CRUD operations, and error handling. I have the codes written out and used Claude Code to verifyif they are correct. Claude Code also helped me with editing instructions, and helped troubleshoot errors.
+I used Claude Code to assist with parts of the program and to help troubleshoot errors.
+I also used ChatGPT to help explain the assignment instructions and understand errors.
+I reviewed the code, made changes where necessary, and tested the program myself.
+I can explain the methods and code included in this project.
 
 I entered and adapted the code and ran it against the Practice Hub API.
 I used the program's output to check the create, read, update, list,
