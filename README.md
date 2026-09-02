@@ -74,11 +74,7 @@ The client prints readable messages for these HTTP errors:
 
 ## AI Usage
 
-I used Claude Code to assist with parts of the program and to help troubleshoot errors.
-I also used ChatGPT to help explain the assignment instructions and understand errors.
-I reviewed the code, made changes where necessary, and tested the program myself.
-I can explain the methods and code included in this project.
+I used ChatGPT to explain the assignment requirements, generate portions of the Python code and README documentation, and help troubleshoot errors. I also used Claude Code to assist with parts of the program and troubleshooting.
 
-I entered and adapted the code and ran it against the Practice Hub API.
-I used the program's output to check the create, read, update, list,
-and delete operations.
+I entered and adapted the code, reviewed it, and tested it against the Practice Hub API. I checked the create, read, update, list, and delete operations and tested the handling of HTTP errors 401, 403, 404, and 422.
+
